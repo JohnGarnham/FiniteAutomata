@@ -1,0 +1,15 @@
+/ Sample DFA file 01
+a b
+> 0
+0 a 0
+   0 b 1
+1 a 0
+1 b 2
+  2 a 0
+  2 b 3
+ 3 a 0
+ 3 b 3
+<   3
+#
+bbabbbb
+bbbbabb

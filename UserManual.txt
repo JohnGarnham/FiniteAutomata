@@ -1,0 +1,69 @@
+John Garnham
+User Manual
+
+To compile the program, run the following commands in the directory
+that contains the program's source code:
+
+g++ -c State.cpp State.h
+g++ -c FiniteAutomata.cpp FiniteAutomata.h
+g++ -o testString TestString.cpp FiniteAutomata.o State.o
+
+You should now have an executable named testString in your current directory.
+
+To run the program, enter its name './testString'.  To run a
+prewritten input file, enter './testString < inputFile' where
+inputFile is the name of your input file. The apostrophes are not
+included.
+
+The first line of input is the definition of the alphabet. Alphabets
+may only contain single characters. The characters are separated by
+whitespace. Duplicate characters are not allowed. If you make an
+error, the program will show a message telling you which error you
+made and will exit.
+
+An example of a valid alphabet is:
+a b c
+
+Once you have completed your alphabet, press enter. The second and
+following lines of input are your state definitions. To specify your
+start state, enter "> " followed by the state that you wish to
+designate as your start state. You may only have one start state. To
+specify an accepting state, enter "< " followed by the state the you
+wish to designate as your accepting state. You have have one or more
+accepting states, or none at all. To enter a transition function,
+specify which state the transition is on, followed by whitespace and
+the input symbol of the transition, followed by whitespace and the
+destination state. You must have a transition function defined for
+every pair of state and input symbol. Otherwise the program will give
+you an error message and exit. Comments may be placed at any time in
+your input, including before your alphabet definition, by starting a
+line with the '/' symbol. Start state, accepting state, and transition
+definitions and comments may be in any order that you wish. To
+complete your state definitions, enter "#" on a single line. Empty
+lines will be ignored.
+
+An example of a valid state definition is:
+"> 0 
+0 a 1
+0 b 3
+< 2
+1 b 2
+1 a 3
+< 3
+2 a 1
+2 b 3
+3 a 3
+3 b 3
+#
+"
+
+Once the state definitions are completed, you may enter strings to
+test. You may enter as many strings to test as you wish. To test a
+string, type the string and press enter. Once done, the finite
+automata will process the string and either "accepted" or "rejected"
+will be printed to the screen, signifying whether or not the finite
+automata has accepted your string. Strings may contain characters that
+are not in your finite automata's alphabet. Such strings, however,
+will always be rejected. To test lambda, simply press enter on an
+empty line. Once you are done testing all of the strings that you wish
+to test, press control-D to exit.

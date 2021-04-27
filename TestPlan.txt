@@ -1,0 +1,258 @@
+
+John Garnham
+Introduction to Computer Science Theory
+Project 1: Test Plan
+
+1. User starts the program with an empty alphabet ("").
+Expected Output: "No alphabet defined." printed to stderr. Program exits.
+Actual Output: Same
+
+2. User starts the program with the following alphabet:
+"a b c d e a"
+Expected Output: "Duplicate alphabet character specified." printed to stderr. Program exits.
+Actual Output: Same
+
+3. User starts the program with the following alphabet:
+"/ a b c d e
+
+"
+Expected Output: "No alphabet defined." printed to stderr. Program exits.
+Actual Output: Same
+
+4. User starts the program with the following alphabet:
+"a b / d e"
+Expected Output: Alphabet is accepted. Proceeds to grab state definitions.
+Actual Output: Same
+
+5. User starts the program with the following alphabet:
+"   a      b          c           d  "
+Expected Output: Alphabet is accepted. Proceeds to grab state definitions.
+Actual Output: Same
+
+6. User starts program with alphabet "a b" and the following state definition:
+"0 a 1
+0 b 1
+1 a 0
+1 b 1
+#"
+Expected Output: "No start state." printed to stderr. Program exits.
+Actual Output: Same
+
+7. User starts program with alphabet "a b" and the following state definition:
+"0 a 1
+0 b 1
+1 a 0
+1 b 1
+> 0 
+#"
+Expected Output: State definition is accepted. Proceeds to grab input strings to test.
+Actual Output: Same
+
+8. User starts program with alphabet "a b" and the following state definition:
+"0 a 1
+0 b 1
+1 a 0
+> 0 
+#"
+Expected Output: "Incomplete transition functions." printed to stderr. Program exits.
+Actual Output: Same
+
+9. User starts program with alphabet "a b" and the following state definition:
+"0 a 1
+0 b 1
+1 a 0
+1 e 1
+> 0 
+#"
+Expected Output: "Invalid input symbol." printed to stderr. Program exits.
+Actual Output: Same
+
+10.  User starts program with alphabet "a b" and the following state definition:
+"0 a 1
+0 b 
+1 a 0
+1 b 1
+> 0 
+#"
+Expected Output: "Incomplete transition function." printed to stderr. Program exits.
+Actual Output: Same
+
+11. User starts program with alphabet "a b" and the following state definition:
+"> 0
+< 2 
+0 a 1
+0 b 3
+1 b 2
+1 a 3
+2 a 1
+2 b 3
+3 a 3
+3 b 3
+#"
+Expected Output: State definition is accepted. Proceeds to grab input strings to test.
+Actual Output: Same
+Should accept language ab(ab)*
+
+12. User starts program with alphabet "a b" and the following state definition:
+"> 0
+< 2 
+0 a 1
+0 b 3
+1 b 2
+1 a 3
+2 a 1
+2 b 3
+3 a 3
+3 b 3
+#"
+And the following test strings:
+"ab
+abb
+abab
+ababab
+ababba"
+Expected Output:
+accepted
+rejected
+accepted
+accepted
+rejected
+Actual Output:
+accepted
+rejected
+accepted
+accepted
+rejected
+
+13. User starts program with alphabet "a b" and the following state definition:
+"> 0
+< 2 
+0 a 1
+0 b 3
+1 b 2
+1 a 3
+2 a 1
+2 b 3
+3 a 3
+3 b 3
+#"
+And an empty test string (""):
+"
+"
+Expected Output:
+rejected
+Actual Output:
+rejected
+
+14. User starts program with alphabet "a b" and the following state definition:
+"> 0
+< 2 
+0 a 1
+0 b 3
+1 b 2
+1 a 3
+2 a 1
+2 b 3
+3 a 3
+3 b 3
+#"
+And the following test strings:
+"aba
+abbababba
+abb
+abbab"
+Expected Output:
+rejected
+rejected
+rejected
+rejected
+Actual Output:
+rejected
+rejected
+rejected
+rejected
+
+15. User starts program with alphabet "a b" and the following state definition:
+"> 0
+< 2 
+0 a 1
+0 b 3
+1 b 2
+1 a 3
+2 a 1
+2 b 3
+3 a 3
+3 b 3
+#"
+And the following test strings:
+"moooo
+abab
+woof 
+abab
+meow"
+Expected Output:
+rejected
+accepted
+rejected
+accepted
+rejected
+Actual Output:
+rejected
+accepted
+rejected
+accepted
+rejected
+
+16. User starts program with alphabet "a b" and the following state definition:
+"0 a 1
+0 b 1
+1 a 0
+1 b 1
+> 0
+> 1
+#"
+Expected Output: "You may only have one start state" printed to stderr. Program exits.
+Actual Output: Same
+
+17. User starts program with alphabet "a b" and the following state definition:
+"0 a 1
+0 b 1
+1 a 0
+1 b 1
+> 0
+< 0
+< 1
+#"
+Expected Output: State definition is accepted. Proceeds to grab input strings to test.
+Actual Output: Same
+
+18. User starts program with the following alphabet: "a bb".
+Expected Output: "Alphabet may only contain single characters."
+Actual Output: Same
+
+19. User starts program with alphabet "a b" and the following state definition:
+"0 a 1
+0 b 1
+1 a 0
+1 b 1
+> 0
+< 0
+< 1
+#"
+Expected Output: State definition is accepted. Proceeds to grab input strings to test.
+Actual Output: Same
+
+
+20. User starts program with alphabet "a b" and the following state definition:
+"0 a 1
+0 b 1
+1 a 0
+1 b 1
+1 b 0
+1 a 0
+> 0
+< 0
+< 1
+#"
+Expected Output: "The finite automata must be deterministic" is printed to stderr. Proceeds to grab input strings to test.
+Actual Output: Same
